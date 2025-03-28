@@ -31,5 +31,5 @@ Kiet Quan
 </ul>
 
 ## .gitignore file and a license
-This .gitignore file excludes a wide range of automatically generated files from Python development, including byte-compiled files, caches, build artifacts, logs, and virtual environments. It also ignores framework-specific and tooling-related files for projects using Django, Flask, Jupyter, and several packaging and type-checking tools. Manually added to ignore the .DS_Store file that macOS creates automatically to store folder view settings and other metadata. This keeps the project clean of unnecessary files.
-License Type: BSD 3-Clause "New" or "Revised" License
+This .gitignore file excludes a wide range of automatically generated files from Python development, including byte-compiled files, caches, build artifacts, logs, and virtual environments. It also ignores framework-specific and tooling-related files for projects using Django, Flask, Jupyter, and several packaging and type-checking tools. Manually added to ignore the .DS_Store file that macOS creates automatically to store folder view settings and other metadata. This keeps the project clean of unnecessary files. <br>
+**License Type**: BSD 3-Clause "New" or "Revised" License
