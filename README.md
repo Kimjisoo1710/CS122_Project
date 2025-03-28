@@ -6,13 +6,29 @@ Ji Soo Kim
 Kiet Quan
 
 ## Project Description
+YelpScope aims to analyze customer feedback and identify key business trends for restaurants based on location and food categories using data from the Yelp Fusion API. By integrating customer reviews, ratings, price ranges, and other key metrics, YelpScope will offer insights into which businesses are performing well and which regions have the highest customer satisfaction. The goal is to provide a comprehensive tool for both consumers and restaurant owners, enabling them to make informed decisions based on up-to-date and detailed data. YelpScope will allow users to sort and filter results based on different criteria, such as ratings, price levels, and review counts, making it easy to spot trends in various locations. The interface will be designed for simplicity and interactivity, offering features like a “Fetch Info” button to pull fresh data from the API and ensure visualizations are always up-to-date. This project will also highlight correlations between various factors, such as the impact of review count on ratings or the most popular cuisines in specific areas.
 
 ## Project Outline/Plan
-<u>Interface:</u>
+**Interface**
+<ul>
+    <li>GUI Development
+        <ul>
+            <li>Programming with TKinter to create a visual and interactive prototype.</li>
+            <li>Collaborative Design: The interface will be developed together, ensuring that both design aesthetics and functionality meet our needs.</li>
+        </ul>
+    </li>
+    <li>Prototype Features
+        <ul>
+            <li>A "Fetch Info" button that recalls the API to update the displayed data.</li>
+            <li>Built-in sorting mechanisms and filters to allow users to interact with data (sorting by ratings, review counts, price levels, etc.).</li>
+        </ul>
+    </li>
+</ul>
 
-<u>Data Collection and Storage Plan:</u>
+**Data Collection and Storage Plan:** <br>
+The project will gather data from the Yelp Fusion API. This data will contain customer reviews, stars, review counts, etc. This data will then be stored in multiple csv files in a comma-separated format. 
 
-<u>Data Analysis and Visualization Plan: </u>
+**Data Analysis and Visualization Plan:**
 <ul>
     <li>Data Analysis Focus:
         <ul>
