@@ -1,0 +1,236 @@
+
+<!--This template is based on: https://dribbble.com/shots/6531694-Marketing-Dashboard by Gregoire Vella -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tailwind Starter Template - Minimal Admin Template: Tailwind Toolbox</title>
+    <meta name="description" content="description here">
+    <meta name="keywords" content="keywords,here">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <!--Replace with your tailwind.css once created-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <link rel="stylesheet" href="static/index.css">
+    <script src="http://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="flex h-screen bg-gray-100 font-sans">
+
+    <!-- Side bar-->
+
+
+    <div class="flex flex-row flex-wrap flex-1 flex-grow content-start ">
+
+        <div class="h-40 lg:h-20 w-full flex flex-wrap">
+            <nav id="header" class="bg-gray-200 w-full lg:max-w-sm flex items-center border-b-1 border-gray-300 order-2 lg:order-1">
+
+                <div class="px-2 w-full">
+                    <form action="{{action}}" method="GET">
+                        <select 
+                            name="limit" 
+                            class="bg-gray-300 border-2 border-gray-200 rounded-full w-full py-3 px-4 text-gray-500 font-bold leading-tight focus:outline-none focus:bg-white focus:shadow-md" 
+                            id="form-field2"
+                            onchange="this.form.submit()"
+                        >
+                        {%for i in [3,10,30,50]:%}
+                            {%if i == limit%}
+                                <option value="{{i}}" selected>{{i}}</option>
+                            {%else%}
+                                <option value="{{i}}">{{i}}</option>
+                            {%endif%}
+                        {%endfor%}
+                            <!-- <option value="3">default</option>
+                            <option value="10">10</option>
+                            <option value="30">30</option>
+                            <option value="50">50</option> -->
+                        </select>
+                    </form> 
+                </div>
+
+            </nav>
+            <div class="flex-1 flex items-center px-2 lg:px-4 order-1 lg:order-2">
+                <div class="ml-10 flex items-baseline space-x-4">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <a href="/rate" {%if action == 'rate'%}class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"{%else%}class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"{%endif%} aria-current="page" >Rating</a>
+                    <a href="/review" {%if action == 'review'%}class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"{%else%}class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"{%endif%} aria-current="page">Review</a>
+                    <a href="/cuisine" {%if action == 'cuisine'%}class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"{%else%}class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"{%endif%} aria-current="page">Cuisine</a>
+                  </div>
+            </div>
+            
+        </div>
+
+        <!--Dash Content -->
+        <div id="dash-content" class="bg-gray-200 py-6 lg:py-0 w-full lg:max-w-sm flex flex-wrap content-start">
+
+            <div class="w-1/2 lg:w-full">
+                <div class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+                    <div class="flex flex-col items-center">
+                        <div class="flex-shrink pr-4">
+                            <div class="rounded-full p-3 bg-gray-300"><i class="fa fa-wallet fa-fw fa-inverse text-indigo-500"></i></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-3xl">$3249 <span class="text-green-500"><i class="fas fa-caret-up"></i></span></h3>
+                            <h5 class="font-bold text-gray-500">Total Revenue</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-1/2 lg:w-full">
+                <div class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+                    <div class="flex flex-col items-center">
+                        <div class="flex-shrink pr-4">
+                            <div class="rounded-full p-3 bg-gray-300"><i class="fas fa-users fa-fw fa-inverse text-indigo-500"></i></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-3xl">249 <span class="text-orange-500"><i class="fas fa-exchange-alt"></i></span></h3>
+                            <h5 class="font-bold text-gray-500">Total Users</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-1/2 lg:w-full">
+                <div class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+                    <div class="flex flex-col items-center">
+                        <div class="flex-shrink pr-4">
+                            <div class="rounded-full p-3 bg-gray-300"><i class="fas fa-user-plus fa-fw fa-inverse text-indigo-500"></i></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-3xl">2 <span class="text-yellow-600"><i class="fas fa-caret-up"></i></span></h3>
+                            <h5 class="font-bold text-gray-500">New Users</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-1/2 lg:w-full">
+                <div class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+                    <div class="flex flex-col items-center">
+                        <div class="flex-shrink pr-4">
+                            <div class="rounded-full p-3 bg-gray-300"><i class="fas fa-server fa-fw fa-inverse text-indigo-500"></i></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-3xl">152 days</h3>
+                            <h5 class="font-bold text-gray-500">Server Uptime</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--Graph Content -->
+        <div id="main-content" class="w-full flex-1">
+
+            <div class="flex flex-1 flex-wrap">
+
+                <div class="w-full xl:w-2/3 p-6 xl:max-w-6xl">
+
+                    <!--"Container" for the graphs"-->
+                    <div class="max-w-full lg:max-w-3xl xl:max-w-5xl">
+
+                        <img src="{{save_path}}" alt="{{save_path}}" />
+
+                        <!--Table Card-->
+                        <div class="p-3">
+                            <div class="border-b p-3">
+                                <h5 class="font-bold text-black">Table</h5>
+                            </div>
+                            <div class="p-5">
+                                <table class="w-full p-5 text-gray-700">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-left text-blue-900">Name</th>
+                                            <th class="text-left text-blue-900">Side</th>
+                                            <th class="text-left text-blue-900">Role</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Obi Wan Kenobi</td>
+                                            <td>Light</td>
+                                            <td>Jedi</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Greedo</td>
+                                            <td>South</td>
+                                            <td>Scumbag</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Darth Vader</td>
+                                            <td>Dark</td>
+                                            <td>Sith</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <p class="py-2"><a href="#">See More issues...</a></p>
+
+                            </div>
+                        </div>
+                        <!--/table Card-->
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        /*Toggle dropdown list*/
+        /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+        var userMenuDiv = document.getElementById("userMenu");
+        var userMenu = document.getElementById("userButton");
+
+        document.onclick = check;
+
+        function check(e) {
+            var target = (e && e.target) || (event && event.srcElement);
+
+            //User Menu
+            if (!checkParent(target, userMenuDiv)) {
+                // click NOT on the menu
+                if (checkParent(target, userMenu)) {
+                    // click on the link
+                    if (userMenuDiv.classList.contains("invisible")) {
+                        userMenuDiv.classList.remove("invisible");
+                    } else {
+                        userMenuDiv.classList.add("invisible");
+                    }
+                } else {
+                    // click both outside link and outside menu, hide menu
+                    userMenuDiv.classList.add("invisible");
+                }
+            }
+
+        }
+
+        function checkParent(t, elm) {
+            while (t.parentNode) {
+                if (t == elm) {
+                    return true;
+                }
+                t = t.parentNode;
+            }
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>
