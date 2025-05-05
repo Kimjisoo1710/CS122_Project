@@ -116,3 +116,7 @@ def getMostPopularCategory(limit=20):
 
 
     
+def getTotalSearchResultByTerm(term, location='San Jose'):
+    # Get the total search result by term from the Yelp API
+    response = help.getTotalSearchResultByTerm(term, location=location)
+    return response
