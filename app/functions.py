@@ -1,10 +1,10 @@
 from app import helper as help
 import json
 
-def fetchAndStore():
-    businesses = help.getRestaurant('restaurant', 'San Jose', limit=50, sort_by='rating')
+def fetchAndStore(location='San Jose'):
+    businesses = help.getRestaurant('restaurant', location, limit=50, sort_by='rating')
     help.storeRestaurantData(businesses, filename='data/data_by_rating.json')
-    businesses = help.getRestaurant('restaurant', 'San Jose', limit=50, sort_by='review_count')
+    businesses = help.getRestaurant('restaurant', location, limit=50, sort_by='review_count')
     help.storeRestaurantData(businesses, filename='data/data_by_review_count.json')
     terms=['Indian',
             'Chinese',
@@ -44,7 +44,7 @@ def fetchAndStore():
     for term in terms:
         category_dict = {}
         category_dict['term'] = term
-        category_dict['total'] = help.getTotalSearchResultByTerm(term, location='San Jose')
+        category_dict['total'] = help.getTotalSearchResultByTerm(term, location=location)
         category_arr.append(category_dict)
     
     # Sort the category data by total in descending order
@@ -116,3 +116,7 @@ def getMostPopularCategory(limit=20):
 
 
     
+def getTotalSearchResultByTerm(term, location='San Jose'):
+    # Get the total search result by term from the Yelp API
+    response = help.getTotalSearchResultByTerm(term, location=location)
+    return response

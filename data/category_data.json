@@ -1,110 +1,110 @@
 [
     {
-        "term": "Mexican",
-        "total": 2400
-    },
-    {
         "term": "American",
-        "total": 1500
+        "total": 10200
     },
     {
         "term": "Italian",
-        "total": 1200
+        "total": 9400
     },
     {
-        "term": "Vietnamese",
-        "total": 1000
-    },
-    {
-        "term": "Thai",
-        "total": 994
+        "term": "Mexican",
+        "total": 7300
     },
     {
         "term": "Chinese",
-        "total": 967
-    },
-    {
-        "term": "Korean",
-        "total": 851
+        "total": 5700
     },
     {
         "term": "Japanese",
-        "total": 817
+        "total": 3400
     },
     {
-        "term": "Indian",
-        "total": 636
-    },
-    {
-        "term": "Hawaiian",
-        "total": 437
-    },
-    {
-        "term": "Filipino",
-        "total": 345
-    },
-    {
-        "term": "Greek",
-        "total": 309
-    },
-    {
-        "term": "Mediterranean",
-        "total": 277
+        "term": "Thai",
+        "total": 3200
     },
     {
         "term": "Spanish",
-        "total": 166
+        "total": 2500
     },
     {
-        "term": "Danish",
-        "total": 153
-    },
-    {
-        "term": "French",
-        "total": 135
-    },
-    {
-        "term": "Turkish",
-        "total": 119
-    },
-    {
-        "term": "Norwegian",
-        "total": 83
-    },
-    {
-        "term": "Lebanese",
-        "total": 77
-    },
-    {
-        "term": "Brazilian",
-        "total": 63
+        "term": "Korean",
+        "total": 2500
     },
     {
         "term": "Caribbean",
-        "total": 41
+        "total": 2500
+    },
+    {
+        "term": "Greek",
+        "total": 2000
+    },
+    {
+        "term": "Mediterranean",
+        "total": 1900
+    },
+    {
+        "term": "Indian",
+        "total": 1500
     },
     {
         "term": "Cuban",
-        "total": 30
+        "total": 1100
     },
     {
-        "term": "Swedish",
-        "total": 15
+        "term": "French",
+        "total": 1000
+    },
+    {
+        "term": "Danish",
+        "total": 1000
+    },
+    {
+        "term": "Vietnamese",
+        "total": 993
+    },
+    {
+        "term": "Hawaiian",
+        "total": 792
+    },
+    {
+        "term": "Turkish",
+        "total": 719
+    },
+    {
+        "term": "Norwegian",
+        "total": 473
+    },
+    {
+        "term": "Brazilian",
+        "total": 427
+    },
+    {
+        "term": "Lebanese",
+        "total": 309
+    },
+    {
+        "term": "Filipino",
+        "total": 302
     },
     {
         "term": "Russian",
-        "total": 12
-    },
-    {
-        "term": "Finnish",
-        "total": 10
-    },
-    {
-        "term": "Icelandic",
-        "total": 8
+        "total": 221
     },
     {
         "term": "Polish",
-        "total": 7
+        "total": 106
+    },
+    {
+        "term": "Swedish",
+        "total": 99
+    },
+    {
+        "term": "Icelandic",
+        "total": 26
+    },
+    {
+        "term": "Finnish",
+        "total": 9
     }
 ]

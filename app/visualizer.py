@@ -39,7 +39,7 @@ def plot_most_reviewed_restaurant(limit=3):
     # Extract restaurant names and ratings
     for restaurant in most_reviewed_restaurant:
         restaurant_names.append(restaurant['name'])
-        review_counts.append(restaurant['rating'])    
+        review_counts.append(restaurant['review_count'])    
 
     restaurant_names = np.array(restaurant_names)
     review_counts = np.array(review_counts)
