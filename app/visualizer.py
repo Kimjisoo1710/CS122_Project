@@ -1,79 +1,73 @@
-
 import matplotlib
 matplotlib.use("Agg")
 from app import functions as f
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-
-# function to plot the highest rated restaurant
 def plot_highest_rated_restaurant(limit=3):
-    # Get the highest rated restaurant data
-    highest_rated_restaurant = f.getHighestRatedRestaurant(limit)
+    # Fetch data
+    data = f.getHighestRatedRestaurant(limit)
+    names = [item['name'] for item in data]
+    ratings = [item['rating'] for item in data]
 
-    restaurant_names = []
-    ratings = []
-    # Extract restaurant names and ratings
-    for restaurant in highest_rated_restaurant:
-        restaurant_names.append(restaurant['name'])
-        ratings.append(restaurant['rating'])    
+    # Create a larger, horizontal bar chart
+    plt.figure(figsize=(14, 8))
+    bars = plt.barh(names, ratings, color='skyblue', edgecolor='grey')
 
-    restaurant_names = np.array(restaurant_names)
-    ratings = np.array(ratings)
+    # Styling
+    plt.xlabel('Rating', fontsize=14)
+    plt.ylabel('Restaurant Name', fontsize=14)
+    plt.title('Highest Rated Restaurants', fontsize=18)
+    plt.gca().invert_yaxis()  # Highest at the top
+    plt.grid(axis='x', linestyle='--', alpha=0.7)
+    plt.tight_layout()
 
-    plt.bar(restaurant_names, ratings, color='blue')
-
-    plt.xlabel('Restaurant Name')
-    plt.ylabel('Rating')
-    plt.title('Highest Rated Restaurants')
+    # Save
     plt.savefig('app/static/highest_rated_restaurants.png')
     plt.close()
 
+
 def plot_most_reviewed_restaurant(limit=3):
-    # Get the most reviewed restaurant data
-    most_reviewed_restaurant = f.getMostReviewedRestaurant(limit)
+    # Fetch data
+    data = f.getMostReviewedRestaurant(limit)
+    names = [item['name'] for item in data]
+    counts = [item['review_count'] for item in data]
 
-    restaurant_names = []
-    review_counts = []
-    # Extract restaurant names and ratings
-    for restaurant in most_reviewed_restaurant:
-        restaurant_names.append(restaurant['name'])
-        review_counts.append(restaurant['review_count'])    
+    # Create a larger, horizontal bar chart
+    plt.figure(figsize=(14, 8))
+    bars = plt.barh(names, counts, color='seagreen', edgecolor='grey')
 
-    restaurant_names = np.array(restaurant_names)
-    review_counts = np.array(review_counts)
+    # Styling
+    plt.xlabel('Review Count', fontsize=14)
+    plt.ylabel('Restaurant Name', fontsize=14)
+    plt.title('Most Reviewed Restaurants', fontsize=18)
+    plt.gca().invert_yaxis()
+    plt.grid(axis='x', linestyle='--', alpha=0.7)
+    plt.tight_layout()
 
-    plt.bar(restaurant_names, review_counts, color='green')
-
-    plt.xlabel('Restaurant Name')
-    plt.ylabel('Review Count')
-    plt.title('Most Reviewed Restaurants')
-
+    # Save
     plt.savefig('app/static/most_reviewed_restaurants.png')
     plt.close()
 
+
 def plot_highest_rated_cuisine(limit=3):
-    # Get the highest rated cuisine data
-    highest_rated_cuisine = f.getMostPopularCategory(limit)
+    # Fetch data
+    data = f.getMostPopularCategory(limit)
+    cuisines = [item['term'] for item in data]
+    totals = [item['total'] for item in data]
 
-    # Extract cuisine names and ratings
-    cuisine_names = []
-    ratings = []
-    # Extract restaurant names and ratings
-    for restaurant in highest_rated_cuisine:
-        cuisine_names.append(restaurant['term'])
-        ratings.append(restaurant['total'])    
+    # Create a larger, horizontal bar chart
+    plt.figure(figsize=(14, 8))
+    bars = plt.barh(cuisines, totals, color='salmon', edgecolor='grey')
 
-    cuisine_names = np.array(cuisine_names)
-    ratings = np.array(ratings)
+    # Styling
+    plt.xlabel('Count', fontsize=14)
+    plt.ylabel('Cuisine Name', fontsize=14)
+    plt.title('Most Popular Cuisines', fontsize=18)
+    plt.gca().invert_yaxis()
+    plt.grid(axis='x', linestyle='--', alpha=0.7)
+    plt.tight_layout()
 
-    plt.bar(cuisine_names, ratings, color='red')
-
-    plt.xlabel('Cuisine Name')
-    plt.ylabel('Rating')
-    plt.title('Highest Rated Cuisines')
-
+    # Save
     plt.savefig('app/static/highest_rated_cuisines.png')
     plt.close()
-    
